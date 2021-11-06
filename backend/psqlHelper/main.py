@@ -49,7 +49,7 @@ class psqlHealper(self):
             cursor = connection.cursor()
             cursor.execute(query)
             datas = cursor.fetchall()
-        except psycopg2.DatabaseError as error:
+        except: psycopg2.DatabaseError as error:
             print(error)
             datas = None
 
@@ -65,7 +65,7 @@ class psqlHealper(self):
             cursor.execute(query)
             connection.commit()
             print(cursor.rowcount + " rows: Insert Complete !!")
-        except psycopg2.DatabaseError as error:
+        except: psycopg2.DatabaseError as error:
             print(error)
             connection.rollback()
 
@@ -79,7 +79,7 @@ class psqlHealper(self):
             cursor.execute("Update set " + table + self.equalList(setData) + if condition : "where " + self.equalList(condition) ")"
             connection.commit()
             print(cursor.rowcount + " rows: Update Complete !!")
-        except psycopg2.DatabaseError as error:
+        except: psycopg2.DatabaseError as error:
             print(error)
             datas = None
 
