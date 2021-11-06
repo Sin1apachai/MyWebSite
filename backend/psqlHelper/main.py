@@ -81,11 +81,9 @@ class psqlHealper(self):
             print(cursor.rowcount + " rows: Update Complete !!")
         except psycopg2.DatabaseError as error:
             print(error)
-            datas = None
 
         cursor.close()
         connection.close()
-        return datas
 
     def delQuery(self, table, condition=None):
         try:
